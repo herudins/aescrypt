@@ -1,4 +1,4 @@
-module aescrypt
+module github.com/herudins/aescrypt
 
 go 1.23.0
 
