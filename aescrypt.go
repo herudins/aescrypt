@@ -19,6 +19,7 @@ var (
 	ErrCiphertextTooShort    = errors.New("ciphertext too short")
 	ErrCiphertextNotMultiple = errors.New("ciphertext is not a multiple of the block size")
 	ErrInvalidIVSize         = errors.New("invalid IV size: must equal AES block size (16)")
+	ErrInvalidHexLength      = errors.New("invalid hex length")
 )
 
 // CIPHER OBJECT (STATELESS)
@@ -177,4 +178,11 @@ func BytesToHex(src []byte) string {
 	dst := make([]byte, hex.EncodedLen(len(src)))
 	hex.Encode(dst, src)
 	return string(dst)
+}
+
+func HexToBytes(s string) ([]byte, error) {
+	if len(s)%2 != 0 {
+		return nil, ErrInvalidHexLength
+	}
+	return hex.DecodeString(s)
 }

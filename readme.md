@@ -202,4 +202,4 @@ This package exists for systems that must accept external IV (legacy protocol, b
 
 ## License
 
-MIT License
+Distributed under the MIT License. See `LICENSE` for more information.
